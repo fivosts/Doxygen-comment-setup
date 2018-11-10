@@ -10,9 +10,9 @@ def register_file(source_path):
 
 	register_list = []
 	register_list.append("/*! \\file " + source_name + "\n")
-	register_list.append("*\t \\brief <Add brief description>\n")
+	register_list.append("*\t \\brief Add brief description\n")
 	register_list.append("*\n")
-	register_list.append("*\t <Add detailed description>\n")
+	register_list.append("*\t Add detailed description\n")
 	register_list.append("*/\n")
 
 	return register_list
@@ -26,9 +26,7 @@ def modify_source(source_path):
 
 	source_file_list = register_file(source_path)  ## Insert header file info
 	for line in source_file:
-		print line
 		source_file_list.append(line)
-	print source_file_list
 
 	#insert here functions to add function/class/struct data
 
