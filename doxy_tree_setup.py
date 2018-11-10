@@ -1,20 +1,25 @@
 #!/usr/bin/python2
-
 import subprocess, os
 import sys
 
-def generate(item, prev_path):
-	print prev_path  + item
-	print os.path.isdir(prev_path+item)
-	print os.listdir(prev_path+item)
-	if os.path.isfile(item):
-		#split it to find if it is C
-		#go and modify it
+def modify_source(source_path):
+	print source_path
+	pass
+
+def search_dir(item, prev_path):
+	# print prev_path  + item
+	# print os.path.isdir(prev_path+item)
+
+	if os.path.isfile(prev_path + item):
+		file_extension = (prev_path + item).split(".")[-1]
+		
+		if file_extension in ["c", "cpp", "cc", "cxx", "h", "hpp"]:
+			modify_source(prev_path + item)
+			pass
 		pass
-	elif os.path.isdir(item):
-		print os.listdir(item)
-		for dir in os.listdir(item):
-			generate("/"+os.listdir(item)[0], prev_path+item)
+	elif os.path.isdir(prev_path + item):
+		for dir in os.listdir(prev_path + item):
+			search_dir("/" + dir, prev_path + item)
 
 
 	return
@@ -33,4 +38,4 @@ if __name__ == '__main__':
 	for item in dir_list:
 		if item[-1] == "/":
 			item = item[:-1]
-		generate(item, "")
+		search_dir(item, "")
