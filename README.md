@@ -1,5 +1,7 @@
 # Doxygen comment setup
 
+For the most updated version of this repository, check it out on my gitlab account: https://gitlab.com/fivosts/doxygen-comment-setup 
+
 This is a simple automatic comment initializer for Doxygen doc generator.
 
 Doxygen documentation generator is an awesome open source project for documenting -mainly, but not only- C/C++ code ( a) http://www.doxygen.org/ b) https://github.com/doxygen/doxygen). After initializing the doxyfile, you need to add a one line comment on top of each source and header file, in order to register it in the doc generation source tree.
